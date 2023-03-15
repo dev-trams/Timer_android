@@ -7,11 +7,12 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ClockThread extends Thread{
+public class ClockThread1 extends Thread{
     Context context;
+
     TextView textView;
 
-    public ClockThread(Context context, TextView textView) {
+    public ClockThread1(Context context, TextView textView) {
         this.context = context;
         this.textView = textView;
     }
@@ -22,7 +23,7 @@ public class ClockThread extends Thread{
         while (true) {
             Calendar calendar = Calendar.getInstance();
             String time = dateFormat.format(calendar.getTime());
-
+            textView.setText(time);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -31,4 +32,3 @@ public class ClockThread extends Thread{
         }
     }
 }
-
