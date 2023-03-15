@@ -23,7 +23,7 @@ public class ClockThread1 extends Thread{
         while (true) {
             Calendar calendar = Calendar.getInstance();
             String time = dateFormat.format(calendar.getTime());
-            textView.setText(time);
+//            textView.setText(time);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
