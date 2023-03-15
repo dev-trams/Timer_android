@@ -13,7 +13,7 @@ public class ClockAsyncTask extends AsyncTask<Void, String, Void> {
     Context context;
     TextView textView;
 
-    public ClockAsyncTaask(Context context, TextView textView) {
+    public ClockAsyncTask(Context context, TextView textView) {
         this.context = context;
         this.textView = textView;
     }
@@ -24,7 +24,7 @@ public class ClockAsyncTask extends AsyncTask<Void, String, Void> {
     }
 
     @Override
-    protected void doInBackground(Void... params) {
+    protected Void doInBackground(Void... params) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
         while (true) {
@@ -34,7 +34,7 @@ public class ClockAsyncTask extends AsyncTask<Void, String, Void> {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                publishProgress(e.getMessage(), 2);
+                publishProgress(e.getMessage(), "2");
             }
         }
     }
