@@ -12,7 +12,7 @@ public class MainActivity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView textView = (TextView) findViewById(R.id.textView);
-        ClockAsyncTask task = new ClockAsyncTask(MainActivity5.this, textView);
-        task.execute();
+        ClockAsyncTask task = new ClockAsyncTask(MainActivity5.this);
+        task.execute(textView);
     }
 }

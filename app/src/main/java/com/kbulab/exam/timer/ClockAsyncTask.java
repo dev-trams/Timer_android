@@ -9,13 +9,12 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ClockAsyncTask extends AsyncTask<Void, String, Void> {
+public class ClockAsyncTask extends AsyncTask<TextView, String, Void> {
     Context context;
     TextView textView;
 
-    public ClockAsyncTask(Context context, TextView textView) {
+    public ClockAsyncTask(Context context) {
         this.context = context;
-        this.textView = textView;
     }
 
     @Override
@@ -24,7 +23,8 @@ public class ClockAsyncTask extends AsyncTask<Void, String, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected Void doInBackground(TextView... voids) {
+        textView = voids[0];
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
         while (true) {
