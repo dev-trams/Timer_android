@@ -1,6 +1,7 @@
 package com.kbulab.exam.timer;
 
 import android.content.Context;
+import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,10 +12,10 @@ public class ClockThread1 extends Thread{
     Context context;
 
     TextView textView;
+    Handler handler;
 
-    public ClockThread1(Context context, TextView textView) {
-        this.context = context;
-        this.textView = textView;
+    public ClockThread1(Handler handler) {
+        this.handler = handler;
     }
 
     @Override
@@ -23,7 +24,7 @@ public class ClockThread1 extends Thread{
         while (true) {
             Calendar calendar = Calendar.getInstance();
             String time = dateFormat.format(calendar.getTime());
-//            textView.setText(time);
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

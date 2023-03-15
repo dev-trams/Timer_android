@@ -26,10 +26,11 @@ public class MainActivity1 extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
                 String time = dateFormat.format(calendar.getTime());
+                textView.setText(time);
                 super.handleMessage(msg);
             }
         };
-        ClockThread1 thread = new ClockThread1(this, textView);
+        ClockThread1 thread = new ClockThread1(handler);
         thread.start();
     }
 }
