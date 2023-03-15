@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,11 +24,14 @@ public class MainActivity1 extends AppCompatActivity {
         @SuppressLint("HandlerLeak") Handler handler = new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-                String time = dateFormat.format(calendar.getTime());
-                textView.setText(time);
-                super.handleMessage(msg);
+                if(msg.what==0) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+                    Calendar calendar = Calendar.getInstance();
+                    String time = dateFormat.format(calendar.getTime());
+                    textView.setText(time);
+                } else if(msg.what==1) {
+                    Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         };
         ClockThread1 thread = new ClockThread1(handler);
